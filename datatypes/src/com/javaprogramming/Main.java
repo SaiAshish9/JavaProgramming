@@ -50,6 +50,7 @@ public class Main {
 
 //        prime number
         System.out.println(isPrime(3));
+        System.out.println(sumDigits(125));
     }
 
     public static boolean isPrime(int n){
@@ -63,6 +64,17 @@ public class Main {
         }
 
         return true;
+    }
+
+    private static int sumDigits(int x){
+        if(x<10)
+            return -1;
+        int sum=0;
+        while(x>0){
+            sum+=x%10;
+            x/=10;
+        }
+        return sum;
     }
 
 }
