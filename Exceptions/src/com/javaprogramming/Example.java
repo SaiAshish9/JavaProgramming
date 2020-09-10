@@ -1,4 +1,6 @@
 package com.javaprogramming;
+import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Example {
@@ -9,16 +11,33 @@ public class Example {
     }
 
     private static int divide(){
-        int x=getInt();
-        int y=getInt();
-        System.out.println(x +" "+y);
-        return x/y;
+        int x;
+        try{
+            x=getInt();
+            int y=getInt();
+            System.out.println(x +" "+y);
+            return x/y;
+        }catch ( ArithmeticException | NoSuchElementException e){
+//            x=getInt();
+        throw new ArithmeticException("no suitable input");
+        }finally {
+            System.out.println("finally block");
+        }
+
     }
+//ctrl d closes input stream
 
     private static int getInt(){
         Scanner s=new Scanner(System.in);
         System.out.println("Enter");
-        return s.nextInt();
+        while (true){
+            try{
+                return s.nextInt();
+            }catch (InputMismatchException e){
+                s.nextLine();
+                System.out.println("Enter correct no.");
+            }
+        }
     }
 
 }
