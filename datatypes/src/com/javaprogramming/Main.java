@@ -67,7 +67,7 @@ public class Main {
     }
 
     private static int sumDigits(int x){
-        if(x<10)
+        if(x<0)
             return -1;
         int sum=0;
         while(x>0){
