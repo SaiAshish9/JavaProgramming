@@ -39,6 +39,8 @@ public class BankAccountTestParameterized {
     @org.junit.Test
     public void deposit() throws  Exception {
 
+        Runtime runtime=Runtime.getRuntime();
+
         account.deposit(amount,branch);
         assertEquals(expected,account.getBalance(),5);
 //delta +-5
